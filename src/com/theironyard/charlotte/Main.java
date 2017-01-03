@@ -5,6 +5,36 @@ import java.util.function.Function;
 
 public class Main {
 
+    public static Color blend(Color[] colors) {
+        int redSum = 0, greenSum = 0, blueSum = 0;
+
+        for (Color c : colors) {
+            redSum += c.red;
+            greenSum += c.green;
+            blueSum += c.blue;
+        }
+
+        return new Color(redSum / colors.length, greenSum / colors.length, blueSum / colors.length);
+    }
+
+    public static double monteCarloPi(int trials) {
+        double successes = 0;
+
+        for (int i = 0; i < trials;i++) {
+            double x = Math.random();
+            double y = Math.random();
+            double z = Math.sqrt(x * x + y * y);
+
+            if (z <= 1.00) {
+                successes++;
+            }
+        }
+        double results = 4 * (successes / trials);
+        System.out.println(results);
+
+        return results;
+    }
+
     public static double flipper(int trials) {
         int successes = 0;
 
@@ -35,8 +65,6 @@ public class Main {
         return capsCount;
     }
 
-
-
     public static int silver(int[] numbers) {
         Integer largest = null, secondLargest = null;
 
@@ -49,7 +77,6 @@ public class Main {
 
         return secondLargest;
     }
-
 
     public static int boost(int input) {
         ArrayList<String> ints = new ArrayList<>();

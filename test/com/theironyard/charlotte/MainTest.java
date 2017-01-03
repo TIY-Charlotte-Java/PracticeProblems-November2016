@@ -66,6 +66,22 @@ public class MainTest {
 
     @Test
     public void velmaFlipsPancakesKindaGoodSometimes() throws Exception {
-        assertEquals(.8 * .8 * .8, Main.flipper(10000), .01);
+        assertEquals(.8 * .8 * .8, Main.flipper(1000000), .1);
+    }
+
+    @Test
+    public void monteCarloPiWorks() throws Exception {
+        assertEquals(3.1415926535, Main.monteCarloPi(1000), .51);
+    }
+
+
+    @Test
+    public void blendBlendsColors() throws Exception {
+        Color[] colors = new Color[2];
+
+        colors[0] = new Color(255, 0, 0);
+        colors[1] = new Color(0, 0, 255);
+
+        assertEquals(new Color(127, 0, 127), Main.blend(colors));
     }
 }
