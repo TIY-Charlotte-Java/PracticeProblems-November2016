@@ -5,6 +5,24 @@ import java.util.function.Function;
 
 public class Main {
 
+    public static int longx(String input) {
+        int count = 0, maxCount = 0;
+
+        for (char c : input.toCharArray()) {
+            if (c == 'x') {
+                count++;
+
+                if (count > maxCount) {
+                    maxCount = count;
+                }
+            } else {
+                count = 0;
+            }
+        }
+
+        return maxCount;
+    }
+
     public static Color blend(Color[] colors) {
         int redSum = 0, greenSum = 0, blueSum = 0;
 
@@ -116,7 +134,6 @@ public class Main {
         return match == notMatch;
     }
 
-
     public static boolean isPalindrome(String argument) {
         // ignore argument's spaces
         argument = argument.replace(" ",  "");
@@ -162,14 +179,24 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome("A Santa at Nasa"));
-        System.out.println(isPalindrome("Avid diva"));
-        System.out.println(isPalindrome("Anna"));
+//        System.out.println(isPalindrome("A Santa at Nasa"));
+//        System.out.println(isPalindrome("Avid diva"));
+//        System.out.println(isPalindrome("Anna"));
+//
+//        System.out.println(isPalindrome("Tub"));
+//        System.out.println(isPalindrome("This is not a palindrome"));
+//        System.out.println(isPalindrome("Believe it"));
 
-        System.out.println(isPalindrome("Tub"));
-        System.out.println(isPalindrome("This is not a palindrome"));
-        System.out.println(isPalindrome("Believe it"));
+//        System.out.println(
+//                blend(
+//                        new Color[] {
+//                                new Color(255, 0, 0),
+//                                new Color(0, 0, 255)
+//                        }
+//                )
+//        );
 
+        System.out.println(11 ^ 5);
 
 //        changeForMoney(24.76);
 

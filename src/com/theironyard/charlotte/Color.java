@@ -33,4 +33,13 @@ public class Color {
         result = 31 * result + blue;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Color{" +
+                "red=" + red +
+                ", green=" + green +
+                ", blue=" + blue +
+                '}';
+    }
 }

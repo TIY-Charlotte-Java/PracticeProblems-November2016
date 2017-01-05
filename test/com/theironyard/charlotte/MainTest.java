@@ -84,4 +84,12 @@ public class MainTest {
 
         assertEquals(new Color(127, 0, 127), Main.blend(colors));
     }
+
+    @Test
+    public void longXReturnsLengthOfLongestXRun() throws Exception {
+        assertEquals(4, Main.longx("asdxxxxf")); // returns 4
+        assertEquals(1, Main.longx("xa")); // return 1
+        assertEquals(1, Main.longx("xpxpxpxpxp")); // return 1
+        assertEquals(5, Main.longx("xxpxxxxxp")); // return 5
+    }
 }
