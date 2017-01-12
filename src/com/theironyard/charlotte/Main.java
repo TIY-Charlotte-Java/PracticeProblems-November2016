@@ -1,9 +1,109 @@
 package com.theironyard.charlotte;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Main {
+
+    private static int daysNemoSurvives() {
+        int fishCount = 10;
+        int days = 20;
+
+        for (int i = 1;i <= days;i++) {
+            // try to catch a fish
+            if (Math.random() <= .10) {
+                fishCount++;
+            }
+
+            // eat a fish
+            fishCount--;
+
+            // we ate a nonexistent fish
+            if (fishCount < 0) {
+                return i;
+            }
+        }
+
+        return days;
+    }
+
+    public static double simulateNemo() {
+        int survivesCount = 0;
+        int trials = 100000;
+
+        Integer[] nemoData = new Integer[trials];
+
+        for (int i = 0;i < trials;i++) {
+            nemoData[i] = daysNemoSurvives();
+        }
+
+        // find the average (and print)
+        int sum = Arrays.stream(nemoData).collect(Collectors.summingInt(i -> i));
+        double average = sum / (double)nemoData.length;
+
+        System.out.println("The average days survived is: " + average);
+
+        Double[] deviations = Arrays.stream(nemoData).map(i -> Math.pow(i - average, 2)).toArray(Double[]::new);
+
+        double averageDeviation = Arrays.stream(deviations).collect(Collectors.averagingDouble(d -> d));
+
+        System.out.println("The standard deviation for survival is: " + Math.sqrt(averageDeviation));
+
+        return survivesCount / (double)(trials / 100);
+    }
+
+
+    public static String headerliner(String input) {
+        input = input.trim().toLowerCase();
+
+        String[] words = input.split(" ");
+
+        for (int i = 0;i < words.length;i++) {
+            // if there are extra whitespace characters, they will
+            // show up in the array. ignore them.
+            if (!words[i].equals("")) {
+                words[i] = words[i].substring(0, 1).toUpperCase() + words[i].substring(1);
+            }
+        }
+
+        return String.join(" ", words);
+    }
+
+    public static int desirable(String input) {
+        int desirableCount = 0;
+
+        for (int i = 0;i < input.length();i++) {
+            if (input.charAt(i) == 'H') {
+                int beginning = i - 2 < 0 ? 0 : i - 2;
+                int end = i + 2 >= input.length() ? input.length() : i + 2;
+
+                if (input.substring(beginning, end).contains("R")) {
+                    desirableCount++;
+                }
+            }
+        }
+
+        return desirableCount;
+    }
+
+    public static String reverse(String input) {
+        char[] chars = input.toCharArray();
+
+        char temp;
+
+        for (int i = 0;i < chars.length / 2;i++) {
+            int idx = i;
+            int mirror = (chars.length - 1) - i;
+
+            temp = chars[idx];
+            chars[idx] = chars[mirror];
+            chars[mirror] = temp;
+        }
+
+        return new String(chars);
+    }
 
     public static int longx(String input) {
         int count = 0, maxCount = 0;

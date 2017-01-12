@@ -92,4 +92,30 @@ public class MainTest {
         assertEquals(1, Main.longx("xpxpxpxpxp")); // return 1
         assertEquals(5, Main.longx("xxpxxxxxp")); // return 5
     }
+
+    @Test
+    public void reverse() throws Exception {
+        assertEquals("stnaP", Main.reverse("Pants"));
+        assertEquals("racecar", Main.reverse("racecar"));
+        assertEquals("cba", Main.reverse("abc"));
+    }
+
+    @Test
+    public void restaurantHouses() throws Exception {
+        assertEquals(2, Main.desirable("RHHHH"));
+        assertEquals(3, Main.desirable("RHHHR"));
+    }
+
+    @Test
+    public void titleCaseTitleCasesWordsPrettyGood() throws Exception {
+        assertEquals("San  Diego", Main.headerliner("sAn  DIEGO"));
+        assertEquals("San-francisco", Main.headerliner("san-francisco"));
+        assertEquals("Where The Red Fern Grows", Main.headerliner("where the red fern grows"));
+        assertEquals("Chicken Pot Pie", Main.headerliner("chICkEn PoT PIE"));
+    }
+
+    @Test
+    public void nemoSurviveSometimes() throws Exception {
+        System.out.println(Main.simulateNemo());
+    }
 }
