@@ -116,6 +116,28 @@ public class MainTest {
 
     @Test
     public void nemoSurviveSometimes() throws Exception {
-        System.out.println(Main.simulateNemo());
+        Main.simulateNemo();
+    }
+
+    @Test
+    public void luckyNumberSlevin() throws Exception {
+//        assertEquals(2, Main.sevenCount("717"));
+        assertEquals(1, Main.sevenCount("BananaPant7s"));
+//        assertEquals(0, Main.sevenCount("100"));
+
+    }
+
+    @Test
+    public void narcissistic() throws Exception {
+        assertTrue(Main.narcissistic(153));
+        assertTrue(Main.narcissistic(1634));
+    }
+
+    @Test
+    public void roseBudTest() throws Exception {
+        assertEquals(0, Main.rosebud("rosebud!o!!1"));
+        assertEquals(0, Main.rosebud("osebud!!!!1"));
+        assertEquals(1, Main.rosebud("rosebud!1"));
+        assertEquals(5, Main.rosebud("rosebud!!!!!1"));
     }
 }

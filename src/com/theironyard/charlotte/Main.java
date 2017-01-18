@@ -3,9 +3,35 @@ package com.theironyard.charlotte;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Function;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main {
+    public static int rosebud(String input) {
+        int result = 0;
+
+        Pattern p = Pattern.compile("rosebud(!+)1");
+        Matcher m = p.matcher(input);
+
+        if (m.matches()) {
+            result = m.group(1).length();
+        }
+
+        return result;
+    }
+
+    public static boolean narcissistic(int input) {
+        return true;
+    }
+
+    public static int sevenCount(String input) {
+        return (int)input
+                .chars()
+                .mapToObj(i -> (char)i)
+                .filter(c -> c == '7')
+                .count();
+    }
 
     private static int daysNemoSurvives() {
         int fishCount = 10;
@@ -53,7 +79,6 @@ public class Main {
 
         return survivesCount / (double)(trials / 100);
     }
-
 
     public static String headerliner(String input) {
         input = input.trim().toLowerCase();
@@ -295,8 +320,7 @@ public class Main {
 //                        }
 //                )
 //        );
-
-        System.out.println(11 ^ 5);
+            System.out.println(5 >> 2);
 
 //        changeForMoney(24.76);
 
