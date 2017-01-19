@@ -140,4 +140,11 @@ public class MainTest {
         assertEquals(1, Main.rosebud("rosebud!1"));
         assertEquals(5, Main.rosebud("rosebud!!!!!1"));
     }
+
+    @Test
+    public void heatIndicator() throws Exception {
+        assertEquals(new Color(255, 0, 0), Main.heat(100));
+        assertEquals(new Color(0, 0, 255), Main.heat(0));
+        assertEquals(new Color(255 / 2, 0, 255 / 2), Main.heat(50));
+    }
 }

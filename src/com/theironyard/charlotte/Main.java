@@ -8,6 +8,18 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main {
+    public static Color heat(int heatIndex) {
+
+        double heatPercentage = (double)heatIndex / 100;
+
+        if (heatIndex < 0 || heatIndex > 100) {
+            throw new IllegalArgumentException("Invalid Heat Index!");
+        }
+
+        return new Color((int)(heatPercentage * 255), 0, (int)((1 - heatPercentage)*255));
+    }
+
+
     public static int rosebud(String input) {
         int result = 0;
 
