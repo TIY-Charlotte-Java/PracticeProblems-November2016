@@ -147,4 +147,9 @@ public class MainTest {
         assertEquals(new Color(0, 0, 255), Main.heat(0));
         assertEquals(new Color(255 / 2, 0, 255 / 2), Main.heat(50));
     }
+
+    @Test
+    public void cherokeeHareTest() throws Exception {
+        assertEquals(241, Main.cherokee(150, .10, 5));
+    }
 }

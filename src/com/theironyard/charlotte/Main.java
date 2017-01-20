@@ -8,6 +8,10 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main {
+    public static int cherokee(int startingPopulation, double growthRate, int weeks) {
+        return (int)(startingPopulation * Math.pow(1 + growthRate, weeks));
+    }
+
     public static Color heat(int heatIndex) {
 
         double heatPercentage = (double)heatIndex / 100;
