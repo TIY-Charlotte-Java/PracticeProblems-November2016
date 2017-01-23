@@ -8,13 +8,46 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main {
+    public static int[] masterMind(int[] actual, int[] guess) {
+        actual = Arrays.copyOf(actual, actual.length);
+
+        int[] results = new int[actual.length];
+
+        for (int i = 0;i < results.length;i++) {
+            if (actual[i] == guess[i]) {
+                results[i] = 2;
+                actual[i] = 0;
+                continue;
+            }
+
+            int actualIndex = Arrays.binarySearch(actual, guess[i]);
+
+            if (actualIndex > -1) {
+                results[i] = 1;
+                actual[actualIndex] = 0;
+            }
+        }
+
+        return results;
+    }
+
+
+    private static int findIndexOfValue(int[] array, int value) {
+        for (int i = 0;i < array.length;i++) {
+            if (array[i] == value) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public static int[] climb(int start, int length) {
         int[] results = new int[length];
-        int inc = 0;
 
         for (int i = 0;i < length;i++) {
-            results[i] = start + inc;
-            start += inc++;
+            start += i;
+            results[i] = start;
         }
 
         return results;

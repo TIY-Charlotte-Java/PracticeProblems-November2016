@@ -2,6 +2,8 @@ package com.theironyard.charlotte;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 /**
@@ -158,5 +160,15 @@ public class MainTest {
         assertArrayEquals(new int[] { 5, 6, 8 }, Main.climb(5, 3));
         assertArrayEquals(new int[] { 8, 9, 11, 14, 18, 23 }, Main.climb(8, 6));
         assertArrayEquals(new int[] { 1, 2, 4, 7 }, Main.climb(1, 4));
+    }
+
+    @Test
+    public void masterMindTest() throws Exception {
+        int[] actual = new int[] { 2, 7, 4, 4};
+        int[] guess  = new int[] { 1, 7, 1, 4};
+
+        assertArrayEquals(new int[] { 0, 2, 0, 2}, Main.masterMind(actual, guess));
+
+        System.out.println(Arrays.toString(actual));
     }
 }
