@@ -152,4 +152,11 @@ public class MainTest {
     public void cherokeeHareTest() throws Exception {
         assertEquals(241, Main.cherokee(150, .10, 5));
     }
+
+    @Test
+    public void climbTest() throws Exception {
+        assertArrayEquals(new int[] { 5, 6, 8 }, Main.climb(5, 3));
+        assertArrayEquals(new int[] { 8, 9, 11, 14, 18, 23 }, Main.climb(8, 6));
+        assertArrayEquals(new int[] { 1, 2, 4, 7 }, Main.climb(1, 4));
+    }
 }

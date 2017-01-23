@@ -8,6 +8,18 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main {
+    public static int[] climb(int start, int length) {
+        int[] results = new int[length];
+        int inc = 0;
+
+        for (int i = 0;i < length;i++) {
+            results[i] = start + inc;
+            start += inc++;
+        }
+
+        return results;
+    }
+
     public static int cherokee(int startingPopulation, double growthRate, int weeks) {
         return (int)(startingPopulation * Math.pow(1 + growthRate, weeks));
     }
