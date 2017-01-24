@@ -8,6 +8,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main {
+
+
     public static int[] masterMind(int[] actual, int[] guess) {
         actual = Arrays.copyOf(actual, actual.length);
 
@@ -17,12 +19,13 @@ public class Main {
             if (actual[i] == guess[i]) {
                 results[i] = 2;
                 actual[i] = 0;
-                continue;
             }
+        }
 
-            int actualIndex = Arrays.binarySearch(actual, guess[i]);
+        for (int i = 0;i < results.length;i++) {
+            int actualIndex = findIndexOfValue(actual, guess[i]);
 
-            if (actualIndex > -1) {
+            if (actual[i] > 0 && actualIndex > -1) {
                 results[i] = 1;
                 actual[actualIndex] = 0;
             }
@@ -452,4 +455,7 @@ public class Main {
 
     }
 
+//    public static int maxBlock(String word) {
+//        String[] letters = word.split("")
+//    }
 }

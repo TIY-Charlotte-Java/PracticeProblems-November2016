@@ -2,8 +2,6 @@ package com.theironyard.charlotte;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.*;
 
 /**
@@ -168,7 +166,16 @@ public class MainTest {
         int[] guess  = new int[] { 1, 7, 1, 4};
 
         assertArrayEquals(new int[] { 0, 2, 0, 2}, Main.masterMind(actual, guess));
+        assertArrayEquals(new int[] { 0 , 0, 0, 2 }, Main.masterMind(new int[] { 1, 2, 3, 4 }, new int[] { 4, 4, 4, 4 }));
 
-        System.out.println(Arrays.toString(actual));
+//        System.out.println(Arrays.toString(actual));
+    }
+
+    @Test
+    public void maxBlockTest() throws Exception {
+//        assertEquals(2, Main.maxBlock("hoopla"));
+//        assertEquals(3, Main.maxBlock("abbCCCddBBBxx"));
+//        assertEquals(2, Main.maxBlock("mississippi"));
+//        assertEquals(1, Main.maxBlock("antidisestablishmentarianism"));
     }
 }
