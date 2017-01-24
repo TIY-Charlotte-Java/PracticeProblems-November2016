@@ -162,12 +162,18 @@ public class MainTest {
 
     @Test
     public void masterMindTest() throws Exception {
-        int[] actual = new int[] { 2, 7, 4, 4};
-        int[] guess  = new int[] { 1, 7, 1, 4};
+        int[] actual = new int[] { 2, 7, 4, 4 };
+        int[] guess  = new int[] { 1, 7, 1, 4 };
+//
+//        assertArrayEquals(new int[] { 0, 2, 0, 2 }, Main.masterMind(actual, guess));
+//        assertArrayEquals(new int[] { 0, 0, 0, 2 }, Main.masterMind(new int[] { 1, 2, 3, 4 }, new int[] { 4, 4, 4, 4 }));
+//        assertArrayEquals(new int[] { 0, 0, 1, 0 }, Main.masterMind(
+//                new int[] { 8, 4, 2, 2 },
+//                new int[] { 6, 7, 8, 6 }));
 
-        assertArrayEquals(new int[] { 0, 2, 0, 2}, Main.masterMind(actual, guess));
-        assertArrayEquals(new int[] { 0 , 0, 0, 2 }, Main.masterMind(new int[] { 1, 2, 3, 4 }, new int[] { 4, 4, 4, 4 }));
-
+        assertArrayEquals(new int[] { 1, 2, 0, 1 }, Main.masterMind(
+                new int[] { 1, 2, 3, 4 },
+                new int[] { 4, 2, 2, 1 }));
 //        System.out.println(Arrays.toString(actual));
     }
 

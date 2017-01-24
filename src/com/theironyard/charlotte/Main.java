@@ -25,7 +25,7 @@ public class Main {
         for (int i = 0;i < results.length;i++) {
             int actualIndex = findIndexOfValue(actual, guess[i]);
 
-            if (actual[i] > 0 && actualIndex > -1) {
+            if (actualIndex > -1 && actual[actualIndex] > 0) {
                 results[i] = 1;
                 actual[actualIndex] = 0;
             }
