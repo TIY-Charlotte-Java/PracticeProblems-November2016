@@ -184,4 +184,9 @@ public class MainTest {
 //        assertEquals(2, Main.maxBlock("mississippi"));
 //        assertEquals(1, Main.maxBlock("antidisestablishmentarianism"));
     }
+
+    @Test
+    public void baconLottery() throws Exception {
+        Main.baconLottery();
+    }
 }

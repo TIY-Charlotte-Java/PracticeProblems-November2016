@@ -9,6 +9,21 @@ import java.util.stream.Collectors;
 
 public class Main {
 
+    public static void baconLottery() {
+        Lottery l = new Lottery();
+
+        l.guess("Ben", 15);
+        l.guess("Stephen", 20);
+        l.guess("Grace", 7);
+        l.guess("BenB", 13);
+        l.guess("Sam", 24);
+        l.guess("Joe", 17);
+        l.guess("Emileen", 22);
+        l.guess("Kelsey", 21);
+
+        l.playLottery();
+    }
+
 
     public static int[] masterMind(int[] actual, int[] guess) {
         actual = Arrays.copyOf(actual, actual.length);
