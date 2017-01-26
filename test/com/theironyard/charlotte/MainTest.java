@@ -2,6 +2,8 @@ package com.theironyard.charlotte;
 
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.*;
 
 /**
@@ -188,5 +190,30 @@ public class MainTest {
     @Test
     public void baconLottery() throws Exception {
         Main.baconLottery();
+    }
+
+    @Test
+    public void overLaps() throws Exception {
+        assertTrue(Main.overlaps(
+                LocalDateTime.now().plusHours(1),    LocalDateTime.now().plusHours(2),
+                LocalDateTime.now().plusMinutes(30), LocalDateTime.now().plusHours(1).plusMinutes(30)));
+
+        assertTrue(Main.overlaps(
+                LocalDateTime.now().plusHours(1),   LocalDateTime.now().plusHours(2),
+                LocalDateTime.now().plusHours(1).plusMinutes(15), LocalDateTime.now().plusHours(1).plusMinutes(45)));
+
+        assertTrue(Main.overlaps(
+                LocalDateTime.now().plusHours(1), LocalDateTime.now().plusHours(2),
+                LocalDateTime.now().plusHours(1).plusMinutes(30), LocalDateTime.now().plusHours(2).plusMinutes(30)));
+
+
+        assertFalse(Main.overlaps(
+                LocalDateTime.now().plusHours(1), LocalDateTime.now().plusHours(2),
+                LocalDateTime.now().plusHours(3), LocalDateTime.now().plusHours(4)));
+
+        assertFalse(Main.overlaps(
+                LocalDateTime.now().plusHours(1), LocalDateTime.now().plusHours(2),
+                LocalDateTime.now(), LocalDateTime.now().plusMinutes(30)));
+
     }
 }

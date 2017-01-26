@@ -1,5 +1,6 @@
 package com.theironyard.charlotte;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Function;
@@ -8,6 +9,12 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main {
+    public static boolean overlaps(LocalDateTime beginStartTime, LocalDateTime beginEndTime, LocalDateTime endStartTime, LocalDateTime endEndTime) {
+        return
+           !((beginStartTime.isBefore(endStartTime) && beginEndTime.isBefore(endStartTime)) ||
+            (beginStartTime.isAfter(endEndTime) && beginEndTime.isAfter(endEndTime)));
+    }
+
 
     public static void baconLottery() {
         Lottery l = new Lottery();
