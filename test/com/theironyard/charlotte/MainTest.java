@@ -216,4 +216,11 @@ public class MainTest {
                 LocalDateTime.now(), LocalDateTime.now().plusMinutes(30)));
 
     }
+
+    @Test
+    public void mergeSortTest() throws Exception {
+        assertArrayEquals(new int[] { 1, 2, 3, 4, 5, 6, 7}, Main.mergeSort(new int[] { 6, 2, 7, 5, 3, 1, 4 }));
+        assertArrayEquals(new int[] { 1 }, Main.mergeSort(new int[] { 1 }));
+        assertArrayEquals(new int[] { 10, 11, 12, 13 }, Main.mergeSort(new int[] { 12, 13, 11, 10 }));
+    }
 }

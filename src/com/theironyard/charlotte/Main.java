@@ -9,6 +9,34 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Main {
+    public static int[] mergeSort(int[] unsortedArray) {
+        if (unsortedArray.length == 1) {
+            return unsortedArray;
+        }
+
+        int[] unsortedLeft = Arrays.copyOfRange(unsortedArray, 0, unsortedArray.length / 2);
+        int[] unsortedRight = Arrays.copyOfRange(unsortedArray, unsortedArray.length / 2, unsortedArray.length);
+
+        return merge(mergeSort(unsortedLeft), mergeSort(unsortedRight));
+    }
+
+    private static int[] merge(int[] sortedLeft, int[] sortedRight) {
+        int[] results = new int[sortedLeft.length + sortedRight.length];
+
+        int leftIdx = 0, rightIdx = 0;
+
+        for (int i = 0;i < results.length;i++) {
+            if (rightIdx == sortedRight.length ||
+                (leftIdx < sortedLeft.length && sortedLeft[leftIdx] <= sortedRight[rightIdx])) {
+                results[i] = sortedLeft[leftIdx++];
+            } else {
+                results[i] = sortedRight[rightIdx++];
+            }
+        }
+
+        return results;
+    }
+
     public static boolean overlaps(LocalDateTime beginStartTime, LocalDateTime beginEndTime, LocalDateTime endStartTime, LocalDateTime endEndTime) {
         return
            !((beginStartTime.isBefore(endStartTime) && beginEndTime.isBefore(endStartTime)) ||
